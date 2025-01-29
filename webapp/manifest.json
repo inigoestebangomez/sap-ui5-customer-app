@@ -1,0 +1,128 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "customer.manager.custmanager",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.2",
+            "toolsId": "1391265e-0d70-49d8-9805-91c85e2c46ae"
+        },
+        "dataSources": {
+            "Northwind":{
+                "uri": "/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.132.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "customer.manager.custmanager.i18n.i18n"
+                }
+            },
+            "":{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "serviceUrl": "/Northwind/Northwind.svc/",
+                    "defaultBindingMode": "TwoWay",
+                    "useBatch": false,
+                    "json": true
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "customer.manager.custmanager.view",
+                "async": true,
+                "viewPath": "customer.manager.custmanager.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteCustomerManager",
+                    "pattern": "",
+                    "target": [
+                        "TargetCustomerManager"
+                    ]
+                },
+                {
+                    "name": "Detail",
+                    "pattern": "Detail/{customerPath}",
+                    "target": "Detail"
+                }
+            ],
+            "targets": {
+                "TargetCustomerManager": {
+                    "id": "_CustomerManager_ID",
+                    "name": "CustomerManager",
+                    "viewLevel": 1
+                },
+                "Detail":{
+                    "id": "_Detail_ID",
+                    "name": "Detail",
+                    "viewLevel": 2
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "customer.manager.custmanager.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

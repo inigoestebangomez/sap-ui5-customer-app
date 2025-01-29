@@ -1,0 +1,32 @@
+<mvc:View
+    controllerName="customer.manager.custmanager.controller.CustomerManager"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="_page2_ID"
+        title="{i18n>title}">
+        <content>
+            <List
+                id="_customerList_ID"
+                items="{/Customers}">
+                <StandardListItem
+                    id="_standardListItem_ID"
+                    title="{CompanyName}"
+                    description="{ContactName}"
+                    type="Active"
+                    press=".onListItemPress"/>
+            </List>
+        </content>
+        <footer>
+            <Bar id="_bar_ID">
+                <contentRight>
+                    <Button
+                        id="_btn_ID"
+                        text="{i18n>btn_addCustomer}"
+                        press=".onAddCustomer"/>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

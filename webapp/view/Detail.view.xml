@@ -1,0 +1,43 @@
+<mvc:XMLView id="_DataXMLView_ID" 
+controllerName="customer.manager.custmanager.controller.Detail"
+xmlns:form="sap.ui.layout.form" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m">
+<Page 
+    id="_page1_ID" 
+    title="{i18n>clientDetails}"
+    showNavButton="true"
+    navButtonPress=".onNavBack">
+    <content>
+        <form:SimpleForm 
+            id="_simpleForm1_ID" 
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanM="3"
+            columnsM="2">
+            <Label id="_label1_ID" text="{i18n>clientID}"/>
+                <Input id="_input1_ID" value="{CustomerID}" editable="false" />
+                
+            <Label id="_label2_ID" text="{i18n>companyName}" />
+                <Input id="_input2_ID" value="{CompanyName}" />
+                
+            <Label id="_label3_ID" text="{i18n>contactName}" />
+                <Input id="_input3_ID" value="{ContactName}" />
+                
+            <Label id="_label4_ID" text="{i18n>phone}" />
+                <Input id="_input4_ID" value="{Phone}" />
+        </form:SimpleForm>
+    </content>
+    <footer>
+        <Bar id="_bar1_ID">
+                <contentLeft>
+                    <Button id="_btn1_ID" text="{i18n>btn_delete}" type="Negative" press=".onDelete" />
+                </contentLeft>
+                <contentRight>
+                    <Button id="_btn2_ID" text="{i18n>btn_save}" type="Emphasized" press=".onSave" />
+                </contentRight>
+            </Bar>
+    </footer>
+</Page>
+
+</mvc:XMLView>
