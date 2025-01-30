@@ -17,8 +17,8 @@ sap.ui.define([
 
             UIComponent.prototype.init.apply(this, arguments);
 
-            let oModel = this.getModel("Northwind");
-
+            const oModel = this.getModel("");
+            console.log(oModel)
             if (!oModel) {
                 console.error("Error: No se puede obtener el modelo 'Northwind'. Verificar el manifest.json.");
             } else {

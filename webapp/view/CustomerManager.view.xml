@@ -2,29 +2,40 @@
     controllerName="customer.manager.custmanager.controller.CustomerManager"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
->
-    <Page
-        id="_page2_ID"
-        title="{i18n>title}">
+    xmlns:f="sap.f">
+    
+    <Page id="page" title="{i18n>title}">
         <content>
-            <List
-                id="_customerList_ID"
-                items="{/Customers}">
-                <StandardListItem
-                    id="_standardListItem_ID"
-                    title="{CompanyName}"
-                    description="{ContactName}"
-                    type="Active"
-                    press=".onListItemPress"/>
-            </List>
+            <f:GridContainer id="customerGridContainer">
+                <f:layout>
+                    <f:GridContainerSettings id="_IDGenGridContainerSettings1" rowSize="12rem" columnSize="12rem" gap="1rem"/>
+                </f:layout>
+                <GenericTile
+                    id="_tileTemplate_ID"
+                    press=".onListItemPress"
+                    header="{CompanyName}"
+                    subheader="{ContactName}"
+                    class="sapUiSmallMargin"
+                    valueColor="Neutral">
+                    <TileContent id="_IDGenTileContent" class="sapUiTinyMarginEnd sapUiTinyMarginBottom sapUiAlignEnd">
+                        <Text 
+                            id="_IDGenText1" 
+                            text="{i18n>viewDetails}"
+                            textAlign="End"
+                            />
+                    </TileContent>
+                </GenericTile>
+            </f:GridContainer>
+            <!-- <Button
+            id="loadMoreBtn"
+            text="{i18n>btn_loadMore}"
+            press=".onLoadMore"
+            class="sapUiSmallMargin sapUiMediumPadding"/> -->
         </content>
         <footer>
-            <Bar id="_bar_ID">
+            <Bar id="_IDGenBar">
                 <contentRight>
-                    <Button
-                        id="_btn_ID"
-                        text="{i18n>btn_addCustomer}"
-                        press=".onAddCustomer"/>
+                    <Button id="_IDGenButton" text="{i18n>btn_addCustomer}" press=".onAddCustomer"/>
                 </contentRight>
             </Bar>
         </footer>
