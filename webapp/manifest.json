@@ -69,6 +69,12 @@
                     "useBatch": false,
                     "json": true
                 }
+            },
+            "clientsFeedback": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {
+                    "comments": []
+                }
             }
         },
         "resources": {

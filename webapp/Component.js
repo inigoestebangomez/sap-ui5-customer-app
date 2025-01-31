@@ -47,6 +47,9 @@ sap.ui.define([
             // Modelo del dispositivo
             this.setModel(models.createDeviceModel(), "device");
 
+            // set the product feedback model
+            this.setModel(models.createCommentsModel(), "clientsFeedback");
+
             // Inicializar el enrutador
             this.getRouter().initialize();
         }

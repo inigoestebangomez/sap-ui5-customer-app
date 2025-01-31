@@ -2,6 +2,7 @@
 controllerName="customer.manager.custmanager.controller.Detail"
 xmlns:form="sap.ui.layout.form" 
 xmlns:mvc="sap.ui.core.mvc"
+xmlns:l="sap.ui.layout"
 xmlns="sap.m">
 <Page 
     id="_page1_ID" 
@@ -28,6 +29,34 @@ xmlns="sap.m">
                 <Input id="_input4_ID" value="{Phone}" />
         </form:SimpleForm>
     </content>
+   <l:VerticalLayout id="_IDGenVerticalLayout" width="100%">
+        <Panel id="_IDGenPanel" 
+            backgroundDesign="Transparent"
+            headerText="Comments">
+                <content>
+                    <FeedInput id="_IDFeedInput" post=".onPost" placeholder="Post something here"/>
+                    <List id="_IDCommentsList"
+                        noDataText="{i18n>noCommentYet}"
+                        showSeparators="Inner"
+                        items="{clientsFeedback>/comments}">
+                        
+                       <FeedListItem id="_IDGenFeedListItem"
+                                info="{clientsFeedback>type}"
+                                text="{clientsFeedback>comment}"
+                                timestamp="{clientsFeedback>date}">
+                            <actions>
+                                <FeedListItemAction id="_IDGenFeedListItemAction" 
+                                    icon="sap-icon://delete"
+                                    text="{i18n>btn_delete}"
+                                    key="delete"
+                                    press=".onDeleteComment"/>
+                            </actions>
+                        </FeedListItem>
+                        
+                    </List>
+                </content>
+        </Panel>
+   </l:VerticalLayout>
     <footer>
         <Bar id="_bar1_ID">
                 <contentLeft>
